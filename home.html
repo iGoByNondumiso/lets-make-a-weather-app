@@ -4,8 +4,68 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Weather Application</title>
+    <link rel="stylesheet" href="styling.css">
 </head>
 <body>
-    
+    <div class="appInterface">
+    <div class="searchBar">
+        <form>
+
+            <input type="text"
+            placeholder="Enter a city"
+            class ="searchBarInput"
+            id="search-bar-input">
+
+            <input type="submit"
+            id="search-button"
+            class="searchButton"
+            >
+
+        </form>
+    </div>
+    <div>
+        <p class="currentCity">Johannesburg</p>
+        <p class="todaysTemp" id="todays-temp">32&deg C</p>
+        <p id="today"></p>
+        <p class="weatherDetails"> 
+            Humidity <span class="measured"> 33 %</span> 
+            Wind <span class="measured">12 km/h</span> 
+        </p>
+        
+    </div>
+    <div class="thisWeek">
+        <ul>
+            <li>Sun </li>
+            <li>Mon </li>
+            <li>Tues </li>
+            <li>Wed</li>
+            <li>Thurs</li>
+            <li>Fri</li>
+            <li>Sat</li>
+        </ul>
+        <ul class="icons">
+            <li>🌤</li>
+            <li>☀</li>
+            <li>🌤</li>
+            <li>⛅</li>
+            <li>🌦</li>
+            <li>🌧</li>
+            <li>⛈</li>
+
+        </ul>
+        <ul class="forecast">
+        <li>14&deg 28&deg</li>
+        <li> 17&deg 30&deg</li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <ul>
+
+        </ul>
+    </div>
+</div>
+<script src="functions.js"></script>
 </body>
 </html>
