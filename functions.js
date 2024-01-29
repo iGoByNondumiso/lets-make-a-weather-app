@@ -1,3 +1,5 @@
+// change day and time after a new search
+
 let now = new Date();
 let theDay = now.getDay();
 let hour = now.getHours();
@@ -18,3 +20,19 @@ function todaysTime(event){
 
 let doASearch = document.querySelector("#search-button")
 doASearch.addEventListener("submit",todaysTime())
+
+// change city name after new search
+
+let searchedCity = document.querySelector("#search-bar-input")
+let myCity = document.querySelector("#city")
+
+function cityUpdate(event){
+  let searchedCity = document.querySelector("#search-bar-input")
+  let myCity = document.querySelector("#city")
+  console.log(searchedCity.value)
+  myCity.innerHTML= searchedCity.value
+
+}
+
+let searchACity = document.querySelector("#search-button")
+searchACity.addEventListener("submit",cityUpdate)

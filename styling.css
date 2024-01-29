@@ -1,20 +1,28 @@
 .appInterface{
-    margin: 50px 60px;
+    display: block;
+    margin: 100px 80px;
     padding: 60px;
     border-radius: 10px;
     box-shadow: 0px 5px 5px #80d6ff;
-    background-color: rgb(244, 254, 255);
+    background-color: rgb(244, 254, 255, 0.6);
+    font-family: 'Ubuntu';
+    max-width: 80%;
+    position: fixed;
+   
+}
 
+form{
 
-
+    display: block;
 }
 
 .searchButton{
-    background-color:#faf15d;
+    background-color:  #80d6ff;
     padding: 20px;
     border: 0px;
     border-radius: 10px;
-    font-size: larger
+    font-size: larger;
+    max-width: fit-content;
    
     
 }
@@ -24,36 +32,63 @@
     font-weight: bolder;
 }
 .searchBarInput{
-    background-color: #0aa0f6;
+    background-color: rgba(228, 250, 252, 0.6);
     color: white;
     padding: 20px;
     font-size: larger;
     border-radius: 10px;
     border: 0px;
+    max-width: fit-content;
+}
+
+.currentCity {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 50px;
 
 }
 
-.todaysTemp {
-    display: flex;
-    position: relative;
-    margin-top: 40px;
-    margin-right: 40px ;
-    font-size: 50px;
-    font-weight: 600;
+.city{
+font-size: 50px;
+font-weight: 600;
+margin-top: 10px;
+}
+
+.tempReading{
     justify-content: right;
+    display: flex;
+}
+.todaysTempIcon{
+margin-top: 7px;
+font-size: 30px;
+padding: 0px 10px;
 }
 
-.currentCity{
-    font-size: 35px;
-    display: flex;
-    position: absolute;
-    margin-top: 12px;
+.todaysTempFigure{
+font-size: 50px;
+font-weight: 600;
+position: relative;
+
 }
+
+.degrees{
+font-weight: 600;
+margin-top: 4px;
+
+}
+
 ul {
+    padding-top: 25px;
     margin-left: -40px;
     list-style: none;
     display: flex;
     justify-content: space-evenly;
     justify-content: space-between ;
+    
 }
+ body{
+    background-image: url(weather-background.jpg.jpg);
+    background-size: cover;
+    background-attachment: fixed;
+ }
 
