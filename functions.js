@@ -23,16 +23,16 @@ doASearch.addEventListener("submit",todaysTime())
 
 // change city name after new search
 
-let searchedCity = document.querySelector("#search-bar-input")
-let myCity = document.querySelector("#city")
+
 
 function cityUpdate(event){
+  event.preventDefault()
   let searchedCity = document.querySelector("#search-bar-input")
-  let myCity = document.querySelector("#city")
   console.log(searchedCity.value)
+  let myCity = document.querySelector("#city")
   myCity.innerHTML= searchedCity.value
 
 }
 
-let searchACity = document.querySelector("#search-button")
+let searchACity = document.querySelector(".searchBar")
 searchACity.addEventListener("submit",cityUpdate)
