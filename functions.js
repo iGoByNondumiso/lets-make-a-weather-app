@@ -17,20 +17,34 @@ function todaysTime(event){
 let doASearch = document.querySelector("#search-button")
 doASearch.addEventListener("submit",todaysTime())
 
-// use weather api to change my weather info per city
+// use weather api data to change my weather info per city
 
 function tempUpdate(response){
   let latestTemp = document.querySelector(".todaysTempFigure")
   console.log(response.data.temperature.current)
   let apiOutput = response.data.temperature.current
   latestTemp.innerHTML = Math.round(apiOutput)
+
+  let humidity = document.querySelector("#humid")
+  console.log(response.data.temperature.humidity)
+  let humidityMeasured = response.data.temperature.humidity
+  humidity.innerHTML=`${humidityMeasured} %` 
+
+  let wind = document.querySelector("#wind-speed")
+  console.log(response.data.wind.speed)
+  let windspeed= response.data.wind.speed
+  wind.innerHTML=`${windspeed} km/h` 
+
+  let condition = document.querySelector("#describe")
+  console.log(response.data.condition.description)
+  condition.innerHTML= response.data.condition.description
 }
 
 
 let updateCityTemp = document.querySelector(".searchBar")
 updateCityTemp.addEventListener("submit",tempUpdate)
 
-// change city name after new search
+// finding the city I searched in the Api
 
 function citySearch (city){
   let searchedCity = document.querySelector("#search-bar-input")
@@ -41,6 +55,8 @@ function citySearch (city){
   axios.get(apiUrl).then(tempUpdate)
 
 }
+
+// change city name displayed after search
 
 function cityUpdate(event){
   event.preventDefault()
