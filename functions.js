@@ -1,12 +1,8 @@
-
-
-
-
 // use weather api data to change my weather info per city
 
 function tempUpdate(response){
   let latestTemp = document.querySelector(".todaysTempFigure")
-  console.log(response.data.temperature.current)
+ 
   let apiOutput = response.data.temperature.current
   latestTemp.innerHTML = Math.round(apiOutput)
 
@@ -51,11 +47,6 @@ let timeUpdate = `${day} ${hour}:${minutes}`
 return timeUpdate
 }
 
-
-
-
-
-
 let updateCityTemp = document.querySelector(".searchBar")
 updateCityTemp.addEventListener("submit",tempUpdate)
 
@@ -68,8 +59,6 @@ function citySearch (city){
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${cityEntry}&key=${apiKey}`
   console.log(apiUrl)
   axios.get(apiUrl).then(tempUpdate)
-
-
 }
 
 // change city name displayed after search
@@ -81,27 +70,50 @@ function cityUpdate(event){
   let myCity = document.querySelector("#city")
   myCity.innerHTML= searchedCity.value
   citySearch(searchedCity.value)
-
 }
-
 let searchACity = document.querySelector(".searchBar")
 searchACity.addEventListener("submit",cityUpdate)
 
+function weekDays(timestamp){
+let futureDay = new Date(timestamp * 1000)
+      let futureDays = ["Sunday","Mon","Tues","Wed","Thur","Fri","Sat"]
+    
+      return futureDays[futureDay.getDay()];}
+    
 
-function displayWeatherForcast (){
-  let weatherForecast = document.querySelector("#thisWeek")
-  let forecastedDays = ["Mon","Tue","Wed","Thurs","Fri"]
+function weeklyForecast(response){
+  console.log(response.data)
+  console.log(response.data.daily)
 
-  forecastedDays.forEach(function (day){
-    weatherForecast.innerHTML += `<ul><li>${day}<br> <span class="forecastIcon">🌤</span> <br> <span class="maxTemp">14&deg</span> <span class="minTemp">28&deg</span> </li><ul>`
-  }
-  )
+  
+    let weatherForecast = document.querySelector("#thisWeek")
+    let forecastedDays = response.data.daily
+  
+    forecastedDays.forEach(function (day, index)
+    { if(index < 5)
+      {
+      weatherForecast.innerHTML += `<ul>
+      <li>${weekDays(day.time)}<br> 
+      <span > <img class="forecastIcon" src="${day.condition.icon_url}"/></span> <br>
+      <span class="maxTemp">${Math.round(day.temperature.maximum)}º</span> 
+      <span class="minTemp">${Math.round(day.temperature.minimum)}º</span> </li><ul>`} 
+    }
+    )
+  
 }
- 
-displayWeatherForcast()
 
 
 
+function getForecast (city){
+  let searchedCity = document.querySelector("#search-bar-input")
+  let cityEntered = searchedCity.value
+  console.log(cityEntered)
+  let apiKey = `79ta47230c920obd7a229aa4aa63f7b7`
+  let apiUrl = `https://api.shecodes.io/weather/v1/forecast?query=${cityEntered}&key=${apiKey}`
+  
+  axios.get(apiUrl).then(weeklyForecast)
+  console.log(apiUrl)
+}
 
-
-
+let searchCityForecast = document.querySelector(".searchBar")
+searchCityForecast.addEventListener("submit",getForecast)

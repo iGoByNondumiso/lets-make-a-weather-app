@@ -7,7 +7,7 @@
     background-color: rgb(244, 254, 255, 0.6);
     font-family: 'Ubuntu';
     max-width: 80%;
-    position: fixed;
+    position: static;
    
 }
 
@@ -33,7 +33,7 @@ form{
 }
 .searchBarInput{
     background-color: rgba(228, 250, 252, 0.6);
-    color: white;
+    color: black;
     padding: 20px;
     font-size: larger;
     border-radius: 10px;
@@ -98,11 +98,17 @@ margin-top: 4px;
   
 }
 
-ul {   list-style: none;}
+.forecastIcon{
+    max-width: 45px;
+}
+
+ul {   list-style: none;
+        max-width: 60%;}
 
  body{
     background-image: url(weather-background.jpg.jpg);
     background-size: cover;
     background-attachment: fixed;
+    overflow: auto;
  }
 
