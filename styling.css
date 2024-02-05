@@ -77,15 +77,29 @@ margin-top: 4px;
 
 }
 
-ul {
+.thisWeek {
+    text-align: center;
+}
+
+.maxTemp{
+    font-weight: 600;
+    color: palevioletred;
+}
+.minTemp{
+    color: rgba(219, 126, 157, 0.8);
+}
+.thisWeek {
     padding-top: 25px;
     margin-left: -40px;
     list-style: none;
     display: flex;
     justify-content: space-evenly;
     justify-content: space-between ;
-    
+  
 }
+
+ul {   list-style: none;}
+
  body{
     background-image: url(weather-background.jpg.jpg);
     background-size: cover;

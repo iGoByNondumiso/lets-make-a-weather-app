@@ -88,8 +88,17 @@ let searchACity = document.querySelector(".searchBar")
 searchACity.addEventListener("submit",cityUpdate)
 
 
+function displayWeatherForcast (){
+  let weatherForecast = document.querySelector("#thisWeek")
+  let forecastedDays = ["Mon","Tue","Wed","Thurs","Fri"]
 
-
+  forecastedDays.forEach(function (day){
+    weatherForecast.innerHTML += `<ul><li>${day}<br> <span class="forecastIcon">🌤</span> <br> <span class="maxTemp">14&deg</span> <span class="minTemp">28&deg</span> </li><ul>`
+  }
+  )
+}
+ 
+displayWeatherForcast()
 
 
 
